@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="to-do-app">
+          <h2>To-do App</h2>
+          <br>
+          <input type="text" id="item" placeholder="Enter item...">
+          <br>
+          <br>
+          <button onclick="add()">Add Item <i class="fa-solid fa-plus"></i></button>
+          <button onclick="del()">Clear all <i class="fa-solid fa-ban"></i></button>
+        </div>
+        <ul class="to-do-list"></ul>
+      </div>
+    
+      <script src="scripts.js"></script>
+</body>
+</html>

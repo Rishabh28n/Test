@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="myform" action="">
+        Enter name: <input type="text" name="customer"/>
+        <input type="button" value="Set Cookie" onclick="WriteCookie();"/>
+        <input type="button" value="Get Cookie" onclick="ReadCookie()"/>
+        <input type="button" value="Remove Cookie" onclick="RemoveCookie()"/>
+     </form>
+    <script>
+         function WriteCookie() {
+                var now = new Date();
+                // now.setTime(now.getTime() + 1 * 3600 * 1000);    // For 1 Hour
+                var minutes = 30;
+                now.setTime(now.getTime() + (minutes * 60 * 1000)); // 30 Minutes
+                
+                if( document.myform.customer.value == "" ) {
+                    alert("Enter some value!");
+                    return;
+                }
+               cookievalue= escape(document.myform.customer.value) + ";";
+               document.cookie="name=" + cookievalue;
+               document.cookie = "expires=" + now.toUTCString() + ";"
+               alert('Cookies value is saved.');
+            }
+            function ReadCookie() {
+               var allcookies = document.cookie;
+               alert(allcookies);
+               // Get all the cookies pairs in an array
+               cookiearray = allcookies.split(';');
+               // Now take key value pair out of this array
+               for(var i=0; i<cookiearray.length; i++) {
+                  name = cookiearray[i].split('=')[0];
+                  value = cookiearray[i].split('=')[1];
+                  alert("Key is : " + name + " and Value is : " + value);
+               }
+            }
+            function RemoveCookie() {
+                document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                var allcookies = document.cookie;
+                alert(allcookies);
+            }
+    </script>
+</body>
+</html>

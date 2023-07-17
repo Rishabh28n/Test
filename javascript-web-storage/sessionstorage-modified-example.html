@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Storing Data with HTML5 Session Storage</title>
+<script>
+	window.onload = function () {
+		if (localStorage) {
+			alert('Your browser supports localStorage.');
+		} else {
+			alert("Sorry, your browser do not support local storage.");
+		}
+	}
+	function save() {
+		var firstName = document.getElementById('firstName').value;
+		sessionStorage.setItem("first_name", firstName);
+		alert("Your first name is saved.");
+	}
+
+	function access() {
+		alert("Hi, " + sessionStorage.getItem("first_name"));	
+	}
+
+	function remove() {
+		sessionStorage.removeItem('first_name');
+		// sessionStorage.clear();
+		alert('sessionStorage item removed.');
+		alert("Hi, " + sessionStorage.getItem("first_name"));
+	}
+</script>
+</head>
+<body>
+    <form>
+    	<label>First Name: <input type="text" id="firstName"></label>
+        <button onclick="save()" type="button">Save Name</button>
+        <button onclick="access()" type="button">Get Name</button>
+		<button onclick="remove()" type="button">Remove Name</button>
+    </form>
+</body>
+</html>

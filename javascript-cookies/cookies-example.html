@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript - read cookie</title>
+</head>
+
+<body>
+  <h2>Use "document.cookie" to read cookie.</h2>
+
+  <script>
+    // Read Cookies Values
+    alert(document.cookie);
+
+    // Creating Cookies 
+    document.cookie = "user=john smith";
+    alert(document.cookie);
+
+    // Set Cookies Expire Time
+    let time = new Date(new Date() + 24 * 60 * 60 * 1000);
+    time = time.toUTCString();
+    // setting 24 hour expiry time
+    document.cookie = "user=john smith; expire=" + time;
+    alert(document.cookie);
+
+    // OLDER - "user=john smith;"
+    document.cookie = "user=Bob johnson; expires=Mon, 12 Jan 2050 12:00:00 UTC; secure;"; // updating
+    alert(document.cookie);
+  </script>
+</body>
+
+</html>

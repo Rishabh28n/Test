@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript - Get and Set cookie</title>
+</head>
+
+<body>
+  <h2>Get and Set cookies functions using Javascript.</h2>
+  <p>The function below checks if there is a cookie with name "user" if it is present then it welocomes the user, else ask the name of user and create a new cookie by the name of user.</p>
+
+    <button onclick="setCookie()">Set Cookies</button>
+    <button onclick="checkCookie()">Get Cookies</button>
+
+  <script>
+    function checkCookie() {
+      let allCookies = decodeURIComponent(document.cookie);
+      cookieArray = allCookies.split(';');
+      cookieArray.forEach(cookie => {
+        cookie = cookie.trim();
+        console.log(cookie);
+        let name = cookie.split('=')[0];
+        let value = cookie.split('=')[1];
+        console.log(name, value);
+      });
+      // if cookie not found
+      // setCookie();
+    }
+
+    function setCookie() {
+      let cookieName = prompt("Enter cookie name:");
+      let cookieValue = prompt("Enter cookie value:");
+      let expireDay = prompt("Enter expiry days:");
+      let now = new Date();
+      let expireTime = new Date(now + expireDay * 24 * 60 * 60 * 1000);
+      document.cookie = cookieName + "=" + cookieValue + ";expires=" + expireTime.toUTCString();
+    }
+  </script>
+</body>
+
+</html>
